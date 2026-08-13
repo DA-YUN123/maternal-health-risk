@@ -6,6 +6,14 @@ UCI의 `Maternal Health Risk` 데이터를 수집·검증·전처리하고, 세 
 > 이 결과물은 교육·연구용입니다. 의료기기가 아니며 실제 진단·응급 판단·치료 결정에
 > 사용할 수 없습니다.
 
+## 실행 화면
+
+![임산부 건강 위험도 분류 Streamlit 웹앱 실행 화면](assets/app_demo.png)
+
+`models/best_model.joblib`은 학습된 Random Forest를 저장한 이진 파일이므로 GitHub에서
+사진이나 코드처럼 미리 볼 수 없습니다. 위 화면은 `app.py`가 해당 모델을 불러와 실제로
+예측을 수행한 결과입니다.
+
 ## 포함된 기능
 
 - 공식 UCI ZIP 다운로드 및 SHA-256 무결성 검증
@@ -85,4 +93,3 @@ tests/                      데이터·모델 자동 테스트
 - scikit-learn, Cross-validation: https://scikit-learn.org/stable/modules/cross_validation.html
 - scikit-learn, Pipeline: https://scikit-learn.org/stable/modules/generated/sklearn.pipeline.Pipeline.html
 - Streamlit documentation: https://docs.streamlit.io/
-
