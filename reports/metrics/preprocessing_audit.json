@@ -1,0 +1,25 @@
+{
+  "raw_rows": 1014,
+  "raw_columns": 7,
+  "raw_missing_values": {
+    "Age": 0,
+    "SystolicBP": 0,
+    "DiastolicBP": 0,
+    "BS": 0,
+    "BodyTemp": 0,
+    "HeartRate": 0,
+    "RiskLevel": 0
+  },
+  "raw_exact_duplicate_rows": 562,
+  "raw_heart_rate_7_rows": 2,
+  "remove_exact_duplicates": true,
+  "heart_rate_7_rows_corrected_after_deduplication": 1,
+  "clean_rows": 452,
+  "clean_exact_duplicate_rows": 0,
+  "clean_missing_values": 0,
+  "class_counts": {
+    "low risk": 234,
+    "mid risk": 106,
+    "high risk": 112
+  }
+}

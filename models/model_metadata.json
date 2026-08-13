@@ -1,0 +1,157 @@
+{
+  "project": "Maternal Health Risk Classification",
+  "created_at_utc": "2026-08-13T05:44:37.692834+00:00",
+  "data_source": {
+    "name": "Maternal Health Risk",
+    "provider": "UCI Machine Learning Repository",
+    "dataset_page": "https://archive.ics.uci.edu/dataset/863/maternal%2Bhealth%2Brisk",
+    "doi": "https://doi.org/10.24432/C5DP5D",
+    "raw_csv_sha256": "a1f7025719f84715096e0d1f95ae2e56b57809b9b15449e1836c96a7d976ae9b",
+    "processed_csv_sha256": "21fe4c987e8dd938b9ede990aec30a4bc9baeb2cfb5320641819108c4029322d",
+    "note": "The UCI metadata page lists 1,013 instances, while the downloaded official CSV contains 1,014 data rows. This project reports the file audit."
+  },
+  "preprocessing": {
+    "raw_rows": 1014,
+    "raw_columns": 7,
+    "raw_missing_values": {
+      "Age": 0,
+      "SystolicBP": 0,
+      "DiastolicBP": 0,
+      "BS": 0,
+      "BodyTemp": 0,
+      "HeartRate": 0,
+      "RiskLevel": 0
+    },
+    "raw_exact_duplicate_rows": 562,
+    "raw_heart_rate_7_rows": 2,
+    "remove_exact_duplicates": true,
+    "heart_rate_7_rows_corrected_after_deduplication": 1,
+    "clean_rows": 452,
+    "clean_exact_duplicate_rows": 0,
+    "clean_missing_values": 0,
+    "class_counts": {
+      "low risk": 234,
+      "mid risk": 106,
+      "high risk": 112
+    }
+  },
+  "features": [
+    "Age",
+    "SystolicBP",
+    "DiastolicBP",
+    "BS",
+    "BodyTemp",
+    "HeartRate"
+  ],
+  "target": "RiskLevel",
+  "labels": [
+    "low risk",
+    "mid risk",
+    "high risk"
+  ],
+  "feature_ranges_observed_in_clean_data": {
+    "Age": {
+      "min": 10.0,
+      "max": 70.0,
+      "median": 25.0
+    },
+    "SystolicBP": {
+      "min": 70.0,
+      "max": 160.0,
+      "median": 120.0
+    },
+    "DiastolicBP": {
+      "min": 49.0,
+      "max": 100.0,
+      "median": 80.0
+    },
+    "BS": {
+      "min": 6.0,
+      "max": 19.0,
+      "median": 7.5
+    },
+    "BodyTemp": {
+      "min": 98.0,
+      "max": 103.0,
+      "median": 98.0
+    },
+    "HeartRate": {
+      "min": 60.0,
+      "max": 90.0,
+      "median": 76.0
+    }
+  },
+  "selected_model": "random_forest",
+  "best_parameters": {
+    "model__max_depth": 5,
+    "model__max_features": "sqrt",
+    "model__min_samples_leaf": 3
+  },
+  "selection_rule": "cross-validated macro F1 on the training split",
+  "split": {
+    "train_rows": 361,
+    "holdout_rows": 91,
+    "test_size": 0.2,
+    "random_state": 42,
+    "cross_validation": "StratifiedKFold(n_splits=5, shuffle=True, random_state=42)",
+    "model_selection_metric": "cross-validated macro F1 on the training split",
+    "train_class_counts": {
+      "low risk": 187,
+      "mid risk": 85,
+      "high risk": 89
+    },
+    "holdout_class_counts": {
+      "low risk": 47,
+      "mid risk": 21,
+      "high risk": 23
+    }
+  },
+  "selected_model_metrics": {
+    "cv_macro_f1_mean": 0.6347304322116932,
+    "cv_macro_f1_std": 0.040821984110932436,
+    "holdout_accuracy": 0.7032967032967034,
+    "holdout_balanced_accuracy": 0.6074328590517305,
+    "holdout_macro_f1": 0.6133157547791694,
+    "holdout_weighted_f1": 0.6682690194885317
+  },
+  "permutation_feature_importance": [
+    {
+      "feature": "SystolicBP",
+      "importance_mean": 0.12561859554172092,
+      "importance_std": 0.028659143780607306
+    },
+    {
+      "feature": "BS",
+      "importance_mean": 0.10116808198054546,
+      "importance_std": 0.025037575861518595
+    },
+    {
+      "feature": "BodyTemp",
+      "importance_mean": 0.051484038240615176,
+      "importance_std": 0.02644269523361559
+    },
+    {
+      "feature": "DiastolicBP",
+      "importance_mean": 0.004381238083213327,
+      "importance_std": 0.013101265280882814
+    },
+    {
+      "feature": "HeartRate",
+      "importance_mean": -0.003013995060795286,
+      "importance_std": 0.01866672259780219
+    },
+    {
+      "feature": "Age",
+      "importance_mean": -0.007263442210334418,
+      "importance_std": 0.011338528183409054
+    }
+  ],
+  "runtime": {
+    "python": "3.12.13",
+    "pandas": "2.2.3",
+    "scikit_learn": "1.8.0",
+    "joblib": "1.5.3"
+  },
+  "intended_use": "Education and model-development demonstration only",
+  "warning": "Not a medical device and not for diagnosis or treatment decisions."
+}
